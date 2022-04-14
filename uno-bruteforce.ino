@@ -1,9 +1,20 @@
 #include "TrinketHidCombo.h"
+#include "GyverTM1637.h"
+#define CLK 6
+#define DIO 7
+
+GyverTM1637 disp(CLK, DIO);
+uint32_t Now, clocktimer;
+boolean flag;
+
 void setup(){
 pinMode(4,INPUT); //USB d- (белый) PORT D4 задан в usbconfig.h
 pinMode(2,INPUT);// USB d+ (зелёный) PORT D2 задан в usbconfig.h
 pinMode (5,OUTPUT);  //программное включение юсб порта PORT D5  задан в usbconfig.h
 TrinketHidCombo.begin(); // запустите движок USB-устройства и перечислите
+Serial.begin(9600);
+disp.clear();
+disp.brightness(1);  // яркость, 0 - 7 (минимум - максимум)
 }
 
 void loop() 
@@ -23,6 +34,7 @@ void loop()
       {
         for(dig4=0; dig4<10; dig4++)
         {
+          disp.display(dig1, dig2, dig3, dig4);
           pressKey(keys[dig1]);
           pressKey(keys[dig2]);
           pressKey(keys[dig3]);
