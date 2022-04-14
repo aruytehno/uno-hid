@@ -28,7 +28,8 @@ void loop()
           pressKey(keys[dig3]);
           pressKey(keys[dig4]);
           TrinketHidCombo.pressKey(0, KEYCODE_ENTER); // Клавиша Enter
-          delay(15000);
+          TrinketHidCombo.pressKey(0, 0); // Отпустить все кнопки программно
+          delay(5000);
         }
       }
     }
@@ -38,5 +39,5 @@ void loop()
 void pressKey(byte dig) // Функция ввода
 {
   TrinketHidCombo.typeChar(dig);
-  delay(3000);
+  delay(1000);
 }
