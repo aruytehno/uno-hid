@@ -1,7 +1,5 @@
-# Arduino Uno-HID
+# Эмулятор клавиатуры на Arduino Uno-HID
 Arduino UNO + TM1637
-
-Price: 15$
 
 Resource:
 
